@@ -1,257 +1,301 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>dr Klaudia Kaniecka – Kancelaria Adwokacka</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dr adw. Klaudia Kaniecka | Doradztwo Prawno-Podatkowe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --charcoal: #1a1a1a;
+            --bone: #f9f9f9;
+            --gold: #c5a059;
+            --gold-muted: #d4bc8d;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background:#fff;
-      color:#333;
-      line-height:1.7;
-    }
-    .container { max-width:1100px; margin:0 auto; padding:0 20px; }
+        body {
+            background-color: var(--bone);
+            color: var(--charcoal);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* Header / Top bar */
-    header.top-bar {
-      background:#0a2540;
-      color:#fff;
-      padding:1rem 0;
-      font-size:1.1rem;
-    }
-    header.top-bar .container {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .phone { font-weight:500; }
-    .phone a { color:#fff; text-decoration:none; }
-    nav ul {
-      list-style:none;
-      display:flex;
-      gap:2.5rem;
-    }
-    nav a { color:#fff; text-decoration:none; font-weight:500; transition:0.2s; }
-    nav a:hover { color:#a0c4ff; }
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
 
-    /* Hero */
-    .hero {
-      background:#f8f9fa;
-      padding:8rem 0 6rem;
-      text-align:center;
-    }
-    .hero h1 {
-      font-size:3.8rem;
-      font-weight:700;
-      color:#0a2540;
-      margin-bottom:0.5rem;
-    }
-    .hero .tag {
-      font-size:1.6rem;
-      font-weight:400;
-      color:#555;
-      margin-bottom:3rem;
-    }
-    .hero .subtitle {
-      font-size:1.3rem;
-      max-width:700px;
-      margin:0 auto 2.5rem;
-      color:#444;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
 
-    /* Practice Areas – cards z ikonami */
-    .practice-areas {
-      padding:6rem 0;
-      background:#fff;
-    }
-    .practice-areas h2 {
-      text-align:center;
-      font-size:2.6rem;
-      margin-bottom:4rem;
-      color:#0a2540;
-    }
-    .areas-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
-      gap:2.5rem;
-    }
-    .area-card {
-      text-align:center;
-      padding:2.5rem 1.5rem;
-      background:#f8f9fa;
-      border-radius:8px;
-      transition:0.25s;
-    }
-    .area-card:hover { box-shadow:0 10px 25px rgba(0,0,0,0.08); transform:translateY(-5px); }
-    .icon {
-      font-size:3.5rem;
-      color:#0a2540;
-      margin-bottom:1.2rem;
-    }
-    .area-card h3 {
-      font-size:1.6rem;
-      margin-bottom:1rem;
-      color:#0a2540;
-    }
-    .area-card p {
-      color:#555;
-      font-size:1.05rem;
-    }
+        /* Layout Helpers */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-    /* Consultation CTA */
-    .cta-section {
-      background:#0a2540;
-      color:#fff;
-      text-align:center;
-      padding:7rem 0;
-    }
-    .cta-section h2 {
-      font-size:2.8rem;
-      margin-bottom:1.5rem;
-    }
-    .cta-section p {
-      font-size:1.3rem;
-      max-width:700px;
-      margin:0 auto 2.5rem;
-    }
-    .btn {
-      display:inline-block;
-      background:#fff;
-      color:#0a2540;
-      padding:1.2rem 3rem;
-      font-size:1.3rem;
-      font-weight:600;
-      text-decoration:none;
-      border-radius:6px;
-      transition:0.3s;
-    }
-    .btn:hover {
-      background:#e0e0e0;
-      transform:translateY(-3px);
-    }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
 
-    /* Kontakt */
-    .contact {
-      padding:6rem 0;
-      background:#f8f9fa;
-      text-align:center;
-    }
-    .contact h2 { font-size:2.4rem; margin-bottom:2.5rem; color:#0a2540; }
-    .contact-info {
-      display:flex;
-      justify-content:center;
-      gap:4rem;
-      flex-wrap:wrap;
-      font-size:1.2rem;
-    }
-    .contact-item strong { display:block; color:#0a2540; margin-bottom:0.6rem; }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    footer {
-      background:#0a2540;
-      color:#ccc;
-      text-align:center;
-      padding:3rem 0;
-      font-size:0.95rem;
-    }
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-    @media (max-width:768px) {
-      .hero h1 { font-size:2.8rem; }
-      .hero .tag { font-size:1.3rem; }
-      nav ul { gap:1.5rem; font-size:1rem; flex-wrap:wrap; justify-content:center; }
-      .contact-info { flex-direction:column; gap:2rem; }
-    }
-  </style>
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .hero-vp {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            max-width: 500px;
+            border-left: 1px solid var(--gold);
+            padding-left: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 160px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding-bottom: 160px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2px;
+            background-color: #e5e5e5; /* Line color */
+            border: 1px solid #e5e5e5;
+        }
+
+        .expertise-item {
+            background-color: var(--bone);
+            padding: 60px 40px;
+            transition: var(--transition);
+        }
+
+        .expertise-item:hover {
+            background-color: #fff;
+        }
+
+        .expertise-number {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-muted);
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .expertise-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        footer {
+            padding: 100px 0 60px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-link {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .contact-link:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            color: #888;
+        }
+
+        .social-links a:hover {
+            color: var(--charcoal);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-title { position: static; margin-bottom: 2rem; }
+            header { height: 80vh; }
+            .container { padding: 0 25px; }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="top-bar">
-    <div class="container">
-      <div class="phone"><a href="tel:+48123456789">+48 123 456 789</a></div>
-      <nav>
-        <ul>
-          <li><a href="#specjalizacje">Specjalizacje</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#konsultacja">Umów konsultację</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container">
-      <h1>dr Klaudia Kaniecka</h1>
-      <div class="tag">KANCELARIA ADWOKACKA</div>
-      <p class="subtitle">Indywidualne podejście, dbałość o szczegóły i najwyższe standardy obsługi – tak pracuję dla moich Klientów.</p>
-    </div>
-  </section>
-
-  <section id="specjalizacje" class="practice-areas">
-    <div class="container">
-      <h2>Specjalizacje</h2>
-      <div class="areas-grid">
-
-        <div class="area-card">
-          <div class="icon">⚖️</div>
-          <h3>Prawo podatkowe</h3>
-          <p>Optymalizacja podatkowa, spory z organami podatkowymi, planowanie sukcesyjne i restrukturyzacje.</p>
+    <header>
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="hero-subtitle">Adwokat | Doktor Nauk Prawnych</span>
+                <h1>dr Klaudia Kaniecka</h1>
+                <p class="hero-vp">Specjalistyczne doradztwo prawno-podatkowe dla biznesu i sukcesji.</p>
+            </div>
         </div>
+    </header>
 
-        <div class="area-card">
-          <div class="icon">🏛️</div>
-          <h3>Prawo spółek</h3>
-          <p>Zakładanie i przekształcanie spółek, umowy wspólników, obsługa organów spółek, M&A.</p>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <h2 class="about-title reveal">O Kancelarii</h2>
+                <div class="about-text reveal">
+                    <p>Wspieram przedsiębiorców w bezpiecznym i efektywnym prowadzeniu biznesu. Moja praktyka łączy rygorystyczne podejście naukowe z wieloletnim doświadczeniem w doradztwie transakcyjnym i korporacyjnym.</p>
+                    <p>Jako doktor nauk prawnych, kładę szczególny nacisk na precyzję interpretacyjną, co jest kluczowe w dynamicznie zmieniającym się otoczeniu regulacyjnym, zwłaszcza w obszarze raportowania MDR i procesów sukcesyjnych.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="area-card">
-          <div class="icon">📜</div>
-          <h3>Restrukturyzacja i upadłość</h3>
-          <p>Doradztwo w postępowaniach restrukturyzacyjnych i upadłościowych – zarówno dla dłużników, jak i wierzycieli.</p>
+    <section class="expertise">
+        <div class="container">
+            <div class="expertise-grid">
+                <div class="expertise-item reveal">
+                    <span class="expertise-number">01</span>
+                    <h3>Regulacje MDR</h3>
+                    <p>Identyfikacja i raportowanie schematów podatkowych z dbałością o pełne bezpieczeństwo klienta.</p>
+                </div>
+                <div class="expertise-item reveal">
+                    <span class="expertise-number">02</span>
+                    <h3>Obsługa korporacyjna</h3>
+                    <p>Kompleksowe wsparcie prawne organów spółek oraz doradztwo w bieżącej działalności operacyjnej.</p>
+                </div>
+                <div class="expertise-item reveal">
+                    <span class="expertise-number">03</span>
+                    <h3>Prawo cywilne</h3>
+                    <p>Konstruowanie umów, reprezentacja w sporach oraz ochrona interesów majątkowych.</p>
+                </div>
+                <div class="expertise-item reveal">
+                    <span class="expertise-number">04</span>
+                    <h3>Procesy sukcesyjne</h3>
+                    <p>Planowanie przekazania majątku i zarządzania firmą rodzinną w perspektywie pokoleniowej.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
-
-  <section id="konsultacja" class="cta-section">
-    <div class="container">
-      <h2>Potrzebujesz pomocy prawnej?</h2>
-      <p>Zapraszam do kontaktu – umówimy dogodny termin konsultacji i omówimy Twoją sprawę w sposób konkretny i rzeczowy.</p>
-      <a href="mailto:klaudia.kaniecka@kancelaria.pl?subject=Zapytanie%20o%20konsultację" class="btn">Umów konsultację</a>
-    </div>
-  </section>
-
-  <section id="kontakt" class="contact">
-    <div class="container">
-      <h2>Kontakt</h2>
-      <div class="contact-info">
-        <div class="contact-item">
-          <strong>Adres</strong>
-          ul. Szekspira 4 lok. 172<br>01-913 Warszawa
+    <footer>
+        <div class="container">
+            <div class="reveal">
+                <a href="mailto:kancelaria@kaniecka.pl" class="contact-link">kancelaria@kaniecka.pl</a>
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    <a href="#">VCard</a>
+                </div>
+            </div>
+            <p style="margin-top: 60px; font-size: 0.7rem; color: #bbb;">&copy; 2026 dr adw. Klaudia Kaniecka. All rights reserved.</p>
         </div>
-        <div class="contact-item">
-          <strong>Telefon</strong>
-          <a href="tel:+48123456789">+48 123 456 789</a>
-        </div>
-        <div class="contact-item">
-          <strong>E-mail</strong>
-          <a href="mailto:klaudia.kaniecka@kancelaria.pl">klaudia.kaniecka@kancelaria.pl</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <footer>
-    © 2026 dr Klaudia Kaniecka – Kancelaria Adwokacka<br>
-    NIP: [wpisz NIP] • Wszystkie prawa zastrzeżone
-  </footer>
+    <script>
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: stop observing after reveal
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Soft Parallax/Scroll effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+        });
+    </script>
 </body>
 </html>
