@@ -230,14 +230,25 @@
             .container { padding: 0 25px; }
         }
 
-            /* Styl dla logo zastępującego nagłówek h1 */
             .hero-logo-main {
                 display: block;
-                max-width: 100%;      /* Logo nie wyjdzie poza ekran */
                 height: auto;
-                max-height: 120px;    /* Dopasuj tę wartość, by logo było czytelne, ale nie przytłaczające */
-                margin-bottom: 2rem;
-                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); /* Delikatna głębia */
+                /* Zwiększamy fizyczną wysokość, by zniwelować marginesy w pliku */
+                max-height: 180px; 
+                
+                /* Przesuwamy i powiększamy samo logo wewnątrz ramki */
+                transform: scale(1.3); 
+                transform-origin: left center; /* Powiększanie od lewej strony */
+                
+                margin-bottom: 3rem;
+                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            }
+            
+            @media (max-width: 768px) {
+                .hero-logo-main {
+                    max-height: 110px;
+                    transform: scale(1.2);
+                }
             }
 
             /* Ukrywamy tekst h1 tylko wizualnie (dla Google), ale zostawiamy go w kodzie */
