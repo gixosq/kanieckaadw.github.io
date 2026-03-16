@@ -17,34 +17,16 @@
             --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bone);
             color: var(--charcoal);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Typography */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        /* Layout Helpers */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -62,46 +44,39 @@
             transform: translateY(0);
         }
 
-        /* --- NOWA SEKCA: NAWIGACJA Z LOGO --- */
+        /* --- LOGO NA GÓRZE --- */
         nav {
-            position: fixed;
+            position: absolute; /* Logo płynie ze stroną, lub zmień na 'fixed' jeśli ma być zawsze widoczne */
             top: 0;
             left: 0;
             width: 100%;
-            padding: 30px 0;
+            padding: 40px 0;
             z-index: 1000;
-            background: linear-gradient(to bottom, var(--bone) 60%, rgba(249,249,249,0));
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 45px; /* Dostosuj wielkość logo tutaj */
+        .nav-logo img {
+            height: 200px; /* Dopasuj wielkość logo górnego */
             width: auto;
             display: block;
         }
-        /* ------------------------------------ */
 
-        /* Hero Section */
+                    /* Korekta dla telefonów, żeby logo nie zasłoniło połowy ekranu */
+            @media (max-width: 768px) {
+                .nav-logo img {
+                    height: 100px; /* Na komórkach 2x większe niż poprzednie 40-45px */
+                }
+            }
+
+        /* --- TEKST PO ŚRODKU (HERO) --- */
         header {
             height: 100vh;
             display: flex;
-            align-items: center;
-            position: relative;
+            align-items: center; /* Centrowanie pionowe */
+            justify-content: flex-start; /* Tekst od lewej, ale w centrum wysokości */
         }
 
         .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+            max-width: 850px;
         }
 
         .hero-subtitle {
@@ -110,187 +85,74 @@
             letter-spacing: 0.2em;
             font-size: 0.9rem;
             color: var(--gold);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             display: block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
         }
 
         .hero-vp {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             font-style: italic;
             font-family: 'Playfair Display', serif;
-            max-width: 500px;
+            max-width: 550px;
             border-left: 1px solid var(--gold);
             padding-left: 2rem;
+            color: #333;
         }
 
-        /* About Section */
-        .about {
-            padding: 160px 0;
-        }
+        /* Sekcja O Kancelarii */
+        .about { padding: 160px 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .about-title { font-size: 2.5rem; font-family: 'Playfair Display', serif; }
+        .about-text { font-size: 1.1rem; color: #444; }
+        .about-text p { margin-bottom: 1.5rem; }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
+        /* Ekspertyza */
+        .expertise { padding-bottom: 160px; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2px; background-color: #e5e5e5; border: 1px solid #e5e5e5; }
+        .expertise-item { background-color: var(--bone); padding: 60px 40px; transition: var(--transition); }
+        .expertise-item:hover { background-color: #fff; }
+        .expertise-number { color: var(--gold-muted); font-size: 0.8rem; display: block; margin-bottom: 2rem; }
+        .expertise-item h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; }
 
-        .about-title {
-            font-size: 2.5rem;
-            position: sticky;
-            top: 150px; /* Zwiększone ze względu na fixed nav */
-        }
+        /* Footer */
+        footer { padding: 100px 0 60px; text-align: center; border-top: 1px solid #eee; }
+        .contact-link { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.5rem); display: block; margin-bottom: 1rem; }
+        .social-links a { margin: 0 15px; color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
-        .about-text {
-            font-size: 1.1rem;
-            color: #444;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        /* Expertise Section */
-        .expertise {
-            padding-bottom: 160px;
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2px;
-            background-color: #e5e5e5;
-            border: 1px solid #e5e5e5;
-        }
-
-        .expertise-item {
-            background-color: var(--bone);
-            padding: 60px 40px;
-            transition: var(--transition);
-        }
-
-        .expertise-item:hover {
-            background-color: #fff;
-        }
-
-        .expertise-number {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold-muted);
-            font-size: 0.8rem;
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        .expertise-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Contact Section */
-        footer {
-            padding: 100px 0 60px;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-
-        .contact-link {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .contact-link:hover {
-            color: var(--gold);
-        }
-
-        .social-links {
-            margin-top: 3rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .social-links a {
-            margin: 0 15px;
-            color: #888;
-        }
-
-        .social-links a:hover {
-            color: var(--charcoal);
-        }
-
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            nav { padding: 20px 0; }
-            .logo img { height: 35px; }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
-            .about-title { position: static; margin-bottom: 2rem; }
-            header { height: 85vh; }
-            .container { padding: 0 25px; }
+            .about-grid { grid-template-columns: 1fr; }
+            header { height: 90vh; }
+            .nav-logo img { height: 45px; }
         }
-
-           /* Nowy, czysty układ pionowy w Hero */
-.hero-content {
-    display: flex;
-    flex-direction: column; /* Układa elementy w pionie */
-    align-items: flex-start; /* Wyrównuje wszystko do lewej */
-}
-
-.hero-logo-main {
-    display: block;
-    height: auto;
-    max-height: 400px;      /* Możesz zwiększyć, jeśli logo ma marginesy */
-    margin-bottom: 2.5rem;  /* Odstęp między logo a tekstem pod spodem */
-    /* Jeśli logo ma duże puste marginesy po bokach w pliku, 
-       możesz dodać poniższą linię, by "dosunąć" tekst: */
-    margin-left: -10px;     
-}
-
-.hero-vp {
-    font-size: clamp(1.2rem, 3vw, 1.6rem); /* Responsywna wielkość czcionki */
-    font-style: italic;
-    font-family: 'Playfair Display', serif;
-    max-width: 550px;       /* Ogranicza szerokość, by tekst ładnie się łamał */
-    border-left: 1px solid var(--gold);
-    padding-left: 2rem;
-    line-height: 1.4;
-}
-
-/* Korekta dla urządzeń mobilnych */
-@media (max-width: 768px) {
-    .hero-logo-main {
-        max-height: 100px;
-        margin-bottom: 1.5rem;
-    }
-    .hero-vp {
-        padding-left: 1.5rem;
-    }
-}
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="Klaudia_Kaniecka_logo_czarne.jpg" alt="dr adw. Klaudia Kaniecka Logo">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="Klaudia_Kaniecka_logo_czarne.svg" alt="dr Klaudia Kaniecka Logo">
             </a>
         </div>
     </nav>
 
-   <header>
-    <div class="container">
-        <div class="hero-content reveal">
-            
-            <img src="Klaudia_Kaniecka_logo_czarne.svg" alt="dr Klaudia Kaniecka" class="hero-logo-main">
-            
-            <h1 class="visually-hidden">dr Klaudia Kaniecka - Kancelaria Prawna</h1>
-
-            <p class="hero-vp">Specjalistyczne doradztwo prawno-podatkowe dla biznesu i sukcesji.</p>
+    <header>
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="hero-subtitle">Adwokat | Doktor Nauk Prawnych</span>
+                <h1>dr Klaudia Kaniecka</h1>
+                <p class="hero-vp">Specjalistyczne doradztwo prawno-podatkowe dla biznesu i sukcesji.</p>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <section class="about" id="about">
         <div class="container">
@@ -298,7 +160,7 @@
                 <h2 class="about-title reveal">O Kancelarii</h2>
                 <div class="about-text reveal">
                     <p>Wspieram przedsiębiorców w bezpiecznym i efektywnym prowadzeniu biznesu. Moja praktyka łączy rygorystyczne podejście naukowe z wieloletnim doświadczeniem w doradztwie transakcyjnym i korporacyjnym.</p>
-                    <p>Jako doktor nauk prawnych, kładę szczególny nacisk na precyzję interpretacyjną, co jest kluczowe w dynamicznie zmieniającym się otoczeniu regulacyjnym, zwłaszcza w obszarze raportowania MDR i procesów sukcesyjnych.</p>
+                    <p>Jako doktor nauk prawnych, kładę szczególny nacisk na precyzję interpretacyjną, co jest kluczowe w dynamicznie zmieniającym się otoczeniu regulacyjnym.</p>
                 </div>
             </div>
         </div>
@@ -310,22 +172,22 @@
                 <div class="expertise-item reveal">
                     <span class="expertise-number">01</span>
                     <h3>Regulacje MDR</h3>
-                    <p>Identyfikacja i raportowanie schematów podatkowych z dbałością o pełne bezpieczeństwo klienta.</p>
+                    <p>Identyfikacja i raportowanie schematów podatkowych z dbałością o bezpieczeństwo klienta.</p>
                 </div>
                 <div class="expertise-item reveal">
                     <span class="expertise-number">02</span>
                     <h3>Obsługa korporacyjna</h3>
-                    <p>Kompleksowe wsparcie prawne organów spółek oraz doradztwo w bieżącej działalności operacyjnej.</p>
+                    <p>Kompleksowe wsparcie prawne organów spółek oraz doradztwo w bieżącej działalności.</p>
                 </div>
                 <div class="expertise-item reveal">
                     <span class="expertise-number">03</span>
                     <h3>Prawo cywilne</h3>
-                    <p>Konstruowanie umów, reprezentacja w sporach oraz ochrona interesów majątkowych.</p>
+                    <p>Konstruowanie umów, reprezentacja w sporach oraz ochrona interesów.</p>
                 </div>
                 <div class="expertise-item reveal">
                     <span class="expertise-number">04</span>
                     <h3>Procesy sukcesyjne</h3>
-                    <p>Planowanie przekazania majątku i zarządzania firmą rodzinną w perspektywie pokoleniowej.</p>
+                    <p>Planowanie przekazania majątku i zarządzania firmą rodzinną.</p>
                 </div>
             </div>
         </div>
@@ -338,36 +200,18 @@
                 <div class="social-links">
                 </div>
             </div>
-            <p style="margin-top: 60px; font-size: 0.7rem; color: #bbb;">&copy; 2026 dr adw. Klaudia Kaniecka. All rights reserved.</p>
+            <p style="margin-top: 60px; font-size: 0.7rem; color: #bbb;">&copy; 2026 dr adw. Klaudia Kaniecka.</p>
         </div>
     </footer>
 
     <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-content');
-            // Delikatne opóźnienie, aby uniknąć skakania przy samym logo
-            if (scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
-            }
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
