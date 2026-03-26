@@ -54,8 +54,8 @@
         }
 
         .nav-logo {
-            width: 100%;
-            height: 100%;
+            width: min(980px, 84vw);
+            aspect-ratio: 2.7 / 1.7;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,9 +64,8 @@
         .nav-logo object,
         .nav-logo img {
             width: 100%;
-            height: auto;
-            max-width: 96vw;
-            max-height: 96vh;
+            height: 100%;
+            object-fit: contain;
             display: block;
             transition: var(--transition);
         }
@@ -151,8 +150,8 @@
             }
             .nav-logo object,
             .nav-logo img {
-                max-width: 94vw;
-                max-height: 94vh;
+                width: 100%;
+                height: 100%;
             }
             .expertise-contact {
                 font-size: 0.9rem;
@@ -165,7 +164,7 @@
 
     <nav>
         <a href="/" class="nav-logo">
-            <img src="Klaudia_Kaniecka_logo_CMYK_na_ciemne_tlo_druk.svg" alt="Logo kancelarii">
+            <img src="Klaudia_Kaniecka_logo_RGB_ciemne_tlo_internet.png" alt="Logo kancelarii">
         </a>
     </nav>
 
@@ -209,7 +208,7 @@
 
     <footer>
         <div class="container">
-<p style="margin-top: 60px; font-size: 0.7rem; color: #bbb;">&copy; 2026 dr adw. Klaudia Kaniecka.</p>
+            <p style="margin-top: 60px; font-size: 0.7rem; color: #bbb;">&copy; 2026 dr adw. Klaudia Kaniecka.</p>
         </div>
     </footer>
 
