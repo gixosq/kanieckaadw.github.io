@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dr adw. Klaudia Kaniecka | Doradztwo Prawno-Podatkowe</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --charcoal: #1a1a1a;
@@ -22,15 +18,16 @@
         body {
             background-color: #062335;
             color: var(--charcoal);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: "Minion Pro", "Times New Roman", serif;
+            line-height: 1.65;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 48px;
         }
 
         .reveal {
@@ -85,7 +82,7 @@
         }
 
         .hero-subtitle {
-            font-family: 'Inter', sans-serif;
+            font-family: "Minion Pro", "Times New Roman", serif;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             font-size: 0.9rem;
@@ -95,7 +92,7 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: "Minion Pro", "Times New Roman", serif;
             font-size: clamp(2.5rem, 7vw, 4.5rem);
             line-height: 1.1;
             margin-bottom: 2.5rem;
@@ -105,7 +102,7 @@
         .hero-vp {
             font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             font-style: italic;
-            font-family: 'Playfair Display', serif;
+            font-family: "Minion Pro", "Times New Roman", serif;
             max-width: 550px;
             border-left: 1px solid var(--gold);
             padding-left: 2rem;
@@ -114,7 +111,7 @@
 
         .about { padding: 160px 0; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-        .about-title { font-size: 2.5rem; font-family: 'Playfair Display', serif; }
+        .about-title { font-size: 2.5rem; font-family: "Minion Pro", "Times New Roman", serif; }
         .about-text { font-size: 1.1rem; color: #444; }
         .about-text p { margin-bottom: 1.5rem; }
 
@@ -124,12 +121,14 @@
         .expertise-item { background-color: #062335; color: #d7dbe1; border: 1px solid rgba(215, 219, 225, 0.25); padding: 60px 40px; transition: var(--transition); }
         .expertise-item:hover { background-color: #0a2b41; }
         .expertise-number { color: #9fb7c8; font-size: 0.8rem; display: block; margin-bottom: 2rem; }
-        .expertise-item h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: #f3f6fa; }
+        .expertise-item h3 { font-family: "Minion Pro", "Times New Roman", serif; font-size: 1.55rem; line-height: 1.25; letter-spacing: 0.01em; margin-bottom: 1rem; color: #f3f6fa; }
+        .expertise-item p { font-size: 1.02rem; line-height: 1.72; }
         .expertise-contact {
             margin-top: 48px;
             text-align: center;
-            font-size: 0.95rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.85;
+            letter-spacing: 0.01em;
             color: #d7dbe1;
         }
         .expertise-contact a {
@@ -139,12 +138,13 @@
 
         /* Footer */
         footer { padding: 100px 0 60px; text-align: center; border-top: 1px solid #eee; }
-        .contact-link { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.5rem); display: block; margin-bottom: 1rem; }
+        .contact-link { font-family: "Minion Pro", "Times New Roman", serif; font-size: clamp(1.5rem, 5vw, 2.5rem); display: block; margin-bottom: 1rem; }
         .social-links a { margin: 0 15px; color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
         @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr; }
             header { height: 90vh; }
+            .container { padding: 0 20px; }
             .expertise-grid {
                 grid-template-columns: 1fr;
             }
@@ -154,8 +154,8 @@
                 height: 100%;
             }
             .expertise-contact {
-                font-size: 0.9rem;
-                line-height: 1.8;
+                font-size: 0.95rem;
+                line-height: 1.75;
             }
         }
     </style>
